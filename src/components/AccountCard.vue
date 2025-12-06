@@ -55,9 +55,6 @@
       <p class="text-gray-500 text-sm">Available balance</p>
       <p class="font-bold text-gray-700 dark:text-gray-200">{{ available }}</p>
 
-      <p class="text-gray-500 text-sm mt-2">Latest balance</p>
-      <p class="font-bold text-gray-700 dark:text-gray-200">{{ latest }}</p>
-
       <div class="flex space-x-4 mt-4">
 
         <!-- PAY BUTTON -->
@@ -96,15 +93,13 @@
 import { defineProps, defineEmits } from "vue";
 
 const props = defineProps({
-  accountId: String,           // <= IMPORTANT for Pay / Transfer
+  accountId: String,
   accountName: String,
   accountNumber: String,
   holderName: String,
   available: String,
-  latest: String,
   icon: String,
 
-  // Buttons visibility
   showTransferButton: { type: Boolean, default: false },
   showPayButton: { type: Boolean, default: false },
   showManageButton: { type: Boolean, default: false }

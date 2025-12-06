@@ -90,29 +90,6 @@ export const api = {
       body: JSON.stringify(payload)
     })
   },
-
-  createManualTransaction(accountId, payload) {
-    // payload: { amount, type, description, transactionDate }
-    return request(`/accounts/${accountId}/manual-transactions`, {
-      method: "POST",
-      body: JSON.stringify(payload)
-    });
-  },
-
-  updateManualTransaction(transactionId, payload) {
-    // payload: { amount, type, description, transactionDate }
-    return request(`/accounts/manual-transactions/${transactionId}`, {
-      method: "PUT",
-      body: JSON.stringify(payload)
-    });
-  },
-
-  deleteManualTransaction(transactionId) {
-    return request(`/accounts/manual-transactions/${transactionId}`, {
-      method: "DELETE"
-    });
-  },
-
 }
 
 export { request as apiFetch }

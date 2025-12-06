@@ -172,18 +172,26 @@ const showContact = ref(false);
 const open = ref(false);
 const openBuy = ref(false);
 const userMenuOpen = ref(false);
-
 const buyMenuRef = ref(null);
 
-/* Username logic */
-const firstName = sessionStorage.getItem("firstName") || "";
-const lastName = sessionStorage.getItem("lastName") || "";
-const email = sessionStorage.getItem("userEmail") || "";
+/**
+ * Username is reactive, but we manually refresh it
+ * whenever sessionStorage changes (via a custom event).
+ */
+const userName = ref("User");
 
-let fullName = `${firstName} ${lastName}`.trim();
-if (!fullName && email) fullName = email.split("@")[0];
+function refreshUserName() {
+  const firstName = sessionStorage.getItem("firstName") || "";
+  const lastName = sessionStorage.getItem("lastName") || "";
+  const email = sessionStorage.getItem("userEmail") || "";
 
-const userName = ref(fullName || "User");
+  let fullName = `${firstName} ${lastName}`.trim();
+  if (!fullName && email) {
+    fullName = email.split("@")[0];
+  }
+
+  userName.value = fullName || "User";
+}
 
 /* Toggle Buy */
 function toggleBuy() {
@@ -197,15 +205,7 @@ function handleClickOutside(e) {
   }
 }
 
-onMounted(() => {
-  document.addEventListener("click", handleClickOutside);
-});
-
-onBeforeUnmount(() => {
-  document.removeEventListener("click", handleClickOutside);
-});
-
-/* Profile dropdown fixes */
+/* Profile dropdown */
 function closeUserMenu() {
   userMenuOpen.value = false;
 }
@@ -220,6 +220,26 @@ function logout() {
   window.location.href = "/login";
 }
 
-function toggle() { open.value = !open.value; }
-function close() { open.value = false; }
+function toggle() {
+  open.value = !open.value;
+}
+
+function close() {
+  open.value = false;
+}
+
+onMounted(() => {
+  // Initial load
+  refreshUserName();
+
+  // Listen for custom profile update event
+  window.addEventListener("profile-updated", refreshUserName);
+
+  document.addEventListener("click", handleClickOutside);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("profile-updated", refreshUserName);
+  document.removeEventListener("click", handleClickOutside);
+});
 </script>
