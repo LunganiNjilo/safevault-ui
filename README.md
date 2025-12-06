@@ -58,7 +58,7 @@ http://localhost:5173/
 - User authenticates to access the banking dashboard
 - Validation messaging for incorrect login attempts
 
-(screenshot here — Login Page)
+![LoginPage](src/assets/img/LoginPage.png)
 
 ---
 
@@ -70,7 +70,7 @@ Displays:
 - Account summary cards
 - Quick navigation actions
 
-(screenshot here — Landing Page)
+![LoginPage](src/assets/img/LandingPage.png)
 
 ---
 
@@ -80,7 +80,7 @@ Displays:
 - Sorted by most recent
 - Shows basic transaction details
 
-(screenshot here — Transaction History Page)
+![TransactionHistory](src/assets/img/TransactionHistory.png)
 
 ---
 
@@ -89,7 +89,9 @@ Displays:
 - Move funds between user-owned accounts
 - Form validation for amounts and balances
 
-(screenshot here — Transfer Funds)
+![InternalAccountTransfer](src/assets/img/InternalAccountTransfer.png)
+
+![InternalAccountTransfer](src/assets/img/InternalAccountTransferSuccess.png)
 
 ---
 
@@ -99,7 +101,9 @@ Displays:
 - Choose a network provider (mock)
 - Enter an amount and confirm
 
-(screenshot here — Airtime Purchase)
+![Airtime](src/assets/img/AirtimeSelectAccount.png)
+![Airtime](src/assets/img/AirtimePage.png)
+![Airtime](src/assets/img/AirtimeSuccessPage.png)
 
 ---
 
@@ -108,18 +112,18 @@ Displays:
 - View and update user details (name, email, phone)
 - Edit mode confirmation
 
-(screenshot here — Profile Page)
+![Profile](src/assets/img/ProfilePage.png)
+![Profile](src/assets/img/ProfileUpdate.png)
 
 ---
 
-### 7️⃣ Account Card Quick Actions
+### 7️⃣ Payment (external account)
 
 Each account card includes:
-
-- **Transfer** → shortcut to internal transfer workflow
 - **Send Money** (renamed from Pay) → external payment flow *(to document separately)*
 
-(screenshot here — Account Actions)
+![Payment](src/assets/img/PaymentToExternal.png)
+![Payment](src/assets/img/PayToExternalSuccess.png)
 
 ---
 
