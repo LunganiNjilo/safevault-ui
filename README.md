@@ -19,7 +19,7 @@ This documentation focuses on **how to run** the UI and a **user experience walk
 - **Framework:** Vue.js (Composition API)
 - **Styling:** Tailwind CSS
 - **API Integration:** Axios HTTP client
-- **Authentication:** Simple Bearer token-style stub (temporary)
+- **Authentication:** Simple Bearer token-style stub (temporary, users are seeded by the backend initializer)
 
 ---
 
@@ -32,24 +32,44 @@ Prerequisites:
 
 Install dependencies:
 
-npm install
+`npm install`
 
 Run the UI locally:
 
-npm run serve
+`npm run serve`
 
 The app will be available at:
 
 http://localhost:5173/
 
-> The UI requires the SafeVault API running.
-> See backend documentation: ../SafeVaultApi/README.md
+> The UI requires the SafeVault API running.  
+> See backend documentation: `../SafeVaultApi/README.md`
+
+---
+
+## 🔑 Test Login Details
+
+There is **no registration process** in this release.  
+Test users are created automatically by the backend initializer.
+
+Use the following credentials to log in:
+
+| Email               | Password | Description          |
+|---------------------|----------|----------------------|
+| test@safesystems.dev | Pass@123 | Primary demo user    |
+| user@safevault.io    | Pass@123 | Secondary demo user  |
+
+Each seeded user has:
+
+- One or more bank accounts
+- Starting balances
+- Sample transactions, so the UI features can be demonstrated immediately
 
 ---
 
 ## 🧭 User Experience Walkthrough
 
-> Replace each “(screenshot here)” placeholder with real UI screenshots.
+> Replace each screenshot path with real UI screenshots captured from your running application.
 
 ---
 
@@ -101,8 +121,8 @@ Displays:
 - Choose a network provider (mock)
 - Enter an amount and confirm
 
-![Airtime](src/assets/img/AirtimeSelectAccount.png)
-![Airtime](src/assets/img/AirtimePage.png)
+![Airtime](src/assets/img/AirtimeSelectAccount.png)  
+![Airtime](src/assets/img/AirtimePage.png)  
 ![Airtime](src/assets/img/AirtimeSuccessPage.png)
 
 ---
@@ -112,7 +132,7 @@ Displays:
 - View and update user details (name, email, phone)
 - Edit mode confirmation
 
-![Profile](src/assets/img/ProfilePage.png)
+![Profile](src/assets/img/ProfilePage.png)  
 ![Profile](src/assets/img/ProfileUpdate.png)
 
 ---
@@ -120,9 +140,10 @@ Displays:
 ### 7️⃣ Payment (external account)
 
 Each account card includes:
+
 - **Send Money** (renamed from Pay) → external payment flow *(to document separately)*
 
-![Payment](src/assets/img/PaymentToExternal.png)
+![Payment](src/assets/img/PaymentToExternal.png)  
 ![Payment](src/assets/img/PayToExternalSuccess.png)
 
 ---
@@ -131,21 +152,21 @@ Each account card includes:
 
 SafeVault UI depends on the SafeVault API:
 
-../SafeVaultApi/README.md
+`../SafeVaultApi/README.md`
 
 ---
 
 ## 📝 Assessment Requirement Coverage
 
-| Requirement | Status |
-|------------|--------|
-| Login and authentication | ✔️ Complete |
-| View balances and account info | ✔️ Complete |
-| Transaction history | ✔️ Complete |
-| Internal transfers | ✔️ Complete |
-| Airtime purchases | ✔️ Complete |
-| Profile management | ✔️ Complete |
-| External payments | 🚧 Planned |
+| Requirement                       | Status     |
+|-----------------------------------|------------|
+| Login and authentication          | ✔️ Complete |
+| View balances and account info    | ✔️ Complete |
+| Transaction history               | ✔️ Complete |
+| Internal transfers                | ✔️ Complete |
+| Airtime purchases                 | ✔️ Complete |
+| Profile management                | ✔️ Complete |
+| External payments                 | 🚧 Planned  |
 
 Screenshots in this document will serve as delivery proof.
 
