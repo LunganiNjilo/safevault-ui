@@ -36,7 +36,7 @@ Install dependencies:
 
 Run the UI locally:
 
-`npm run serve`
+`npm run dev`
 
 The app will be available at:
 
